@@ -48,7 +48,18 @@ QUnit.module('Тестируем функцию format', function () {
 			'  10   100   -100\n' +
 			'1000 10000 -10000';
 
+		const expected4 =
+			'     0    1    2    10\n' +
+			'   100 -100 1000 10000\n' +
+			'-10000';
+
+		const expected5 = 
+			'   0    1     2     10 100\n' +
+			'-100 1000 10000 -10000';
+
 		assert.strictEqual(format(input, 2), expected2);
 		assert.strictEqual(format(input, 3), expected3);
+		assert.strictEqual(format(input, 4), expected4);
+		assert.strictEqual(format(input, 5), expected5);
 	});
 });
