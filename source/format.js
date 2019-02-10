@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Returns format output of array
  * @constructor
@@ -6,7 +8,6 @@
  * @returns {string} format string of input array
  */
 
-'use strict';
 
 function format(arr, n) {
   if (typeof(n) != "number") {
@@ -14,21 +15,16 @@ function format(arr, n) {
   }
 
   let localMax = "";
-  let res = [];
-
-  const pureAssoc = (key, value, object) => ({
-    ...object,
-    [key]: value
-  });
+  let res = [...arr];
 
   for(let i = 0; i < n; i++) {
-    for(let j = i; j < arr.length; j+=n) {
-      if (String(arr[j]).length > localMax.length) { 
-        localMax = String(arr[j]); 
+    for(let j = i; j < res.length; j+=n) {
+      if (String(res[j]).length > localMax.length) { 
+        localMax = String(res[j]); 
       }
     }
-    for(let j = i; j < arr.length; j+=n) {
-      res[j] = pureAssoc(j, ' '.repeat(localMax.length - String(arr[j]).length) + arr[j], arr)[j];
+    for(let j = i; j < res.length; j+=n) {
+      res[j] = ' '.repeat(localMax.length - String(res[j]).length) + res[j];
     }
     localMax = "";
   }
