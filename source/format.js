@@ -1,3 +1,10 @@
+/**
+ * Format output of array
+ * @constructor
+ * @param {object} arr - Input array
+ * @param {number} n - Number of elements in the array
+ */
+
 'use strict';
 
 function format(arr, n) {
