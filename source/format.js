@@ -1,8 +1,9 @@
 /**
- * Format output of array
+ * Returns format output of array
  * @constructor
- * @param {object} arr - Input array
- * @param {number} n - Number of elements in the array
+ * @param {object} arr Input array
+ * @param {number} n Number of elements in the array
+ * @returns {string} format string of input array
  */
 
 'use strict';
