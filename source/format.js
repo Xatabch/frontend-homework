@@ -10,14 +10,15 @@
 
 
 function format(arr, n) {
-  if (typeof(n) != "number") {
+
+  if (typeof(n) !== "number") {
     return "";
   }
 
   let localMax = "";
   let res = [...arr];
 
-  for(let i = 0; i < n; i++) {
+  [...Array(n)].forEach((_,i) => {
     for(let j = i; j < res.length; j+=n) {
       if (String(res[j]).length > localMax.length) { 
         localMax = String(res[j]); 
@@ -27,7 +28,7 @@ function format(arr, n) {
       res[j] = ' '.repeat(localMax.length - String(res[j]).length) + res[j];
     }
     localMax = "";
-  }
+  })
 
   let result = "";
   for(let i = 0; i < res.length; i += n) {
