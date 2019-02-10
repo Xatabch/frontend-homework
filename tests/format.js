@@ -62,4 +62,21 @@ QUnit.module('Тестируем функцию format', function () {
 		assert.strictEqual(format(input, 4), expected4);
 		assert.strictEqual(format(input, 5), expected5);
 	});
+
+	QUnit.test('format работает правильно с другими типами данных', function (assert) {
+		const input = ['a', 'b', 'c', 'd', 'e', '-f', 'gg'];
+		const input2 = [1.25, 2.29, 3.81, 9.1];
+
+		const expected =
+			' a b  c\n' +
+			' d e -f\n' +
+			'gg';
+
+		const expected2 =
+			'1.25 2.29\n' +
+			'3.81  9.1' 
+
+		assert.strictEqual(format(input, 3), expected);
+		assert.strictEqual(format(input2, 2), expected2);
+	});
 });
