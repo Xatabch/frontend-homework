@@ -11,8 +11,11 @@
 
 function format(arr, n) {
 
-  if (typeof(n) !== "number") {
+  if(typeof(n) !== "number") {
     return "";
+  }
+  if(!Array.isArray(arr)) {
+  	return "";
   }
 
   let localMax = "";
