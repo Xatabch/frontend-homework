@@ -11,31 +11,28 @@
 
 function format(arr, n) {
 
-  if(typeof(n) !== "number") {
-    return "";
-  }
-  if(!Array.isArray(arr)) {
-  	return "";
+  if(typeof n !== 'number' || !Array.isArray(arr)) {
+  	return '';
   }
 
-  let localMax = "";
+  let localMax = 0;
   let res = [...arr];
 
   [...Array(n)].forEach((_,i) => {
     for(let j = i; j < res.length; j+=n) {
-      if (String(res[j]).length > localMax.length) { 
-        localMax = String(res[j]); 
+      if (String(res[j]).length > localMax) { 
+        localMax = String(res[j]).length; 
       }
     }
     for(let j = i; j < res.length; j+=n) {
-      res[j] = ' '.repeat(localMax.length - String(res[j]).length) + res[j];
+      res[j] = ' '.repeat(localMax - String(res[j]).length) + res[j];
     }
-    localMax = "";
-  })
+    localMax = 0;
+  });
 
-  let result = "";
+  let result = '';
   for(let i = 0; i < res.length; i += n) {
-    result += (res.slice(i, i+n).join(" ") + "\n");
+    result += res.slice(i, i+n).join(' ') + '\n';
   }
-  return (result.slice(0, result.length-1));
+  return result.slice(0, -1);
 }
