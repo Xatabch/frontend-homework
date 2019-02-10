@@ -9,14 +9,18 @@
 'use strict';
 
 function format(arr, n) {
+  if (typeof(n) != "number") {
+    return "";
+  }
+
   let localMax = "";
+  let res = [];
 
   const pureAssoc = (key, value, object) => ({
     ...object,
     [key]: value
   });
 
-  let res = [];
   for(let i = 0; i < n; i++) {
     for(let j = i; j < arr.length; j+=n) {
       if (String(arr[j]).length > localMax.length) { 

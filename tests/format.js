@@ -79,4 +79,16 @@ QUnit.module('Тестируем функцию format', function () {
 		assert.strictEqual(format(input, 3), expected);
 		assert.strictEqual(format(input2, 2), expected2);
 	});
+
+	QUnit.test('format выводит пустую строку при некорректных данных', function (assert) {
+		const input = [1.25, 2.29, 3.81, 9.1];
+		const input2 = "";
+		const input3 = 3;
+
+		const expected = '';
+
+		assert.strictEqual(format(input, ''), expected);
+		assert.strictEqual(format(input2, 3), expected);
+		assert.strictEqual(format(input3, ''), expected);
+	});
 });
