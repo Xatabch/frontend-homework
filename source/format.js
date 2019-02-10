@@ -7,12 +7,10 @@
  * @param {number} n Number of elements in the array
  * @returns {string} format string of input array
  */
-
-
 function format(arr, n) {
 
   if(typeof n !== 'number' || !Array.isArray(arr)) {
-  	return '';
+    return '';
   }
 
   let localMax = 0;
