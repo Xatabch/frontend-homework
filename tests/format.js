@@ -90,5 +90,9 @@ QUnit.module('Тестируем функцию format', function () {
 		assert.strictEqual(format(input, ''), expected);
 		assert.strictEqual(format(input2, 3), expected);
 		assert.strictEqual(format(input3, ''), expected);
+		assert.strictEqual(format(NaN, 3), expected);
+		assert.strictEqual(format(input, NaN), expected);
+		assert.strictEqual(format(Infinity, 3), expected);
+		assert.strictEqual(format(input, Infinity), expected);
 	});
 });

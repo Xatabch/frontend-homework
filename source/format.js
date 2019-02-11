@@ -9,7 +9,7 @@
  */
 function format(arr, n) {
 
-  if(typeof n !== 'number' || !Array.isArray(arr)) {
+  if(typeof n !== 'number' || !Array.isArray(arr) || isNaN(n) || !isFinite(n)) {
     return '';
   }
 
