@@ -23,14 +23,14 @@ function format(arr, n) {
       }
     }
     for (let j = i; j < res.length; j+=n) {
-      res[j] = ' '.repeat(localMax - String(res[j]).length) + res[j];
+      res[j] = `${ ' '.repeat(localMax - String(res[j]).length)}${res[j]}`;
     }
     localMax = 0;
   });
 
   let result = '';
   for (let i = 0; i < res.length; i += n) {
-    result += res.slice(i, i + n).join(' ') + '\n';
+    result += `${res.slice(i, i+n).join(' ')}\n`;
   }
   return result.slice(0, -1);
 }
